@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+
 import './App.css';
 
 class App extends Component {
@@ -24,21 +26,21 @@ class App extends Component {
 
   render() {
     return (
+      <MuiThemeProvider>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to my quote generator</h1>
-        </header>
         <p className="App-intro">
           { !Object.keys(this.state.quote).length ? "Press button below to get a quote" : this.state.quote[0].quoteText }
         </p>
         <p className="App-intro">
           { !Object.keys(this.state.quote).length ? '' : '- ' + this.state.quote[0].quoteAuthor }
         </p>
-        <button
+        <RaisedButton
+          label="Get quote"
+          primary={true}
           onClick={this.getQuote}
-        >Get quote</button>
+        />
       </div>
+      </MuiThemeProvider>
     );
   }
 }
