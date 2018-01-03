@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import Quote from './components/Quote';
+
 import './App.css';
+
 
 class App extends Component {
   constructor() {
@@ -19,20 +22,15 @@ class App extends Component {
     const res = await fetch(this.state.quoteAPI);
     const quote = await res.json();
     if (quote) {
-      this.setState({ quote });
+      this.setState({ quote: quote[0] });
     }
   }
 
   render() {
     return (
       <MuiThemeProvider>
-      <div className="App">
-        <p className="App-intro">
-          { !Object.keys(this.state.quote).length ? "Press button below to get a quote" : this.state.quote[0].quoteText }
-        </p>
-        <p className="App-intro">
-          { !Object.keys(this.state.quote).length ? '' : '- ' + this.state.quote[0].quoteAuthor }
-        </p>
+      <div className="app">
+        <Quote quoteText={this.state.quote.quoteText} quoteAuthor={this.state.quote.quoteAuthor}/>
         <RaisedButton
           label="Get quote"
           primary={true}
