@@ -10,7 +10,7 @@ class App extends Component {
 
     this.state = {
       quoteAPI: 'http://localhost:8080/api/quote',
-      quote: {}
+      quote: {},
     }
     this.getQuote();
   }
@@ -20,7 +20,6 @@ class App extends Component {
     const quote = await res.json();
     if (quote) {
       this.setState({ quote });
-      console.log(this.state.quote[0].quoteText);
     }
   }
 
