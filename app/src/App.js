@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
 
 import Quote from './components/Quote';
+import Buttons from './components/Buttons';
 
 import './App.css';
 
@@ -30,12 +30,8 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div className="app">
-        <Quote quoteText={this.state.quote.quoteText} quoteAuthor={this.state.quote.quoteAuthor}/>
-        <RaisedButton
-          label="Get quote"
-          primary={true}
-          onClick={this.getQuote}
-        />
+        <Quote quoteText={this.state.quote.quoteText} quoteAuthor={this.state.quote.quoteAuthor} />
+        <Buttons quoteText={this.state.quote.quoteText} quoteAuthor={this.state.quote.quoteAuthor} />
       </div>
       </MuiThemeProvider>
     );
