@@ -3,12 +3,12 @@ import React from 'react';
 const Quote = (props) => {
   return (
     <div className="app">
-      <p className="app--quote-fadein">
+      <blockquote>
         { props.quoteText }
-      </p>
-      <p className="App-intro">
+      </blockquote>
+      <blockquote>
         { `- ${props.quoteAuthor}` }
-      </p>
+      </blockquote>
     </div>
   )
 }
